@@ -1,6 +1,6 @@
 param($wpi, $rhc, $chor, $git, $ni)
 try {
-    if ( Test-Path -Path $wpi) {
+    if (Test-Path -Path $wpi) {
         Start-Process -FilePath ((Mount-DiskImage -ImagePath $wpi -PassThru | Get-Volume).DriveLetter + ":\WPILibInstaller.exe") -Wait
         Dismount-DiskImage -ImagePath $wpi
         Remove-Item -Path $wpi
