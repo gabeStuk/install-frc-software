@@ -1,0 +1,12 @@
+on:
+    push:
+        branches:
+            main
+
+jobs:
+    build:
+        permissions: write-all
+        name: Build Package
+        uses: ./.github/workflows/package-installer.yml
+        with:
+            release: "false"

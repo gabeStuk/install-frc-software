@@ -1,0 +1,12 @@
+on:
+    push:
+        branches:
+            release
+
+jobs:
+    release:
+        permissions: write-all
+        name: Release Package
+        uses: ./.github/workflows/package-installer.yml
+        with:
+            release: "true"
