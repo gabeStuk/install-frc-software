@@ -15,7 +15,7 @@ on:
                 required: true
 
 env:
-    VERSION: 1.0.0
+    VERSION: 1.1.0
 
 jobs:
     build:
@@ -24,7 +24,7 @@ jobs:
 
         steps:
             - name: "[1/8] Chechout Branch"
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
             - name: "[2/8] Install NSIS"
               uses: repolevedavaj/install-nsis@v1.0.2
               with:
@@ -48,7 +48,7 @@ jobs:
                 Compress-Archive @compress
             - name: "[6/8] Upload Artifact"
               if: ${{ (github.event.inputs.release == 'false') && (inputs.release == 'false') }}
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: install-frc-stuff.zip
                 path: ${{github.workspace}}\install-frc-stuff-out.zip
